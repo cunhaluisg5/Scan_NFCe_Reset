@@ -2,8 +2,8 @@ import React from "react";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Reset from './screens/Reset';
-import Error from './screens/Error';
+import Reset from './screens/Reset/Reset';
+import Error from './screens/Error/Error';
 
 const Routes = () => (
   <BrowserRouter>
