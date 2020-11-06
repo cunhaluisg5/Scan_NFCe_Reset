@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
 import Api from '../../service/Api';
-import { Form, Container, Header, Body } from './Style';
+import Logo from '../../images/logo.png';
+import { Form, Container, Body } from './Style';
 
 class Reset extends Component {
     state = {
@@ -22,7 +23,7 @@ class Reset extends Component {
         const { token, email, password } = this.state;
 
         if (!token || !email || !password) {
-            this.setState({ error: "Preencha todos os dados para redefinir a sua senha" });
+            this.setState({ error: "Preencha os dados corretamente!" });
         } else {
             await Api.post('/auth/reset_password', {
                 token: token,
@@ -41,9 +42,9 @@ class Reset extends Component {
     render() {
         return (
             <Container>
-                <Header><p>Scan NFCe</p></Header>
                 <Body>
                     <Form onSubmit={this.resetPassword}>
+                        <img src={Logo} alt="Logo" />
                         {this.state.error && <p id="error">{this.state.error}</p>}
                         {this.state.success && <p id="success">{this.state.success}</p>}
                         <h1>Redefinição de Senha</h1>

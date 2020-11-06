@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
-import { Container, Header, Body } from './Style';
+import Logo from '../../images/logo.png';
+import { Container, Body, Content } from './Style';
 
 class Error extends Component {
 
     render() {
         return (
             <Container>
-                <Header><p>Scan NFCe</p></Header>
                 <Body>
-                    <h1>Ops... Algo deu errado!</h1>
+                    <Content>
+                    <img src={Logo} alt="Logo" />
+                    <h1>Página não encontrada!</h1>
+                    </Content>
                 </Body>
             </Container>
         )

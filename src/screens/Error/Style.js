@@ -10,20 +10,28 @@ export const Body = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 85vh;
-  background:linear-gradient(rgba(10,13,65),rgba(10,13,28));
-  h1 {
-      color: #fff
-  }
+  height: 100vh;
+  background:linear-gradient(#0a0d1c,#051c2b);
 `;
 
-export const Header = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 80px;
-  background:linear-gradient(rgba(0,141,0),rgba(0,179,55));
-  p {
-    margin-left: 20px;
-  }
-`;
+export const Content = styled.div`
+    width: 600px;
+    background:linear-gradient(#142541,#2d385a);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1px;
+    border: solid; 
+    border-width: 1px 2px 2px 1px;
+    border-color: #7FFFD4 #FFD700 #FFD700 #7FFFD4;
+    img {
+      width: 150px;
+      margin: 10px 0 20px;
+    }
+    h1 {
+      color: #FFFFFF;
+      font-family: cursive;
+      margin: 0 0 20px;
+    }
+  `;
