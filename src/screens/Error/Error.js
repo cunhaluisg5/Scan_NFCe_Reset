@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
-import Logo from '../../images/logo.png';
+import Logo from '../../assets/logo.png';
 import { Container, Body, Content } from './Style';
 
 class Error extends Component {

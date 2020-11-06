@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
 import Api from '../../service/Api';
-import Logo from '../../images/logo.png';
+import Logo from '../../assets/logo.png';
 import { Form, Container, Body } from './Style';
 
 class Reset extends Component {
