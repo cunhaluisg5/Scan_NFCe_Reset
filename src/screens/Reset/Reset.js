@@ -31,7 +31,7 @@ class Reset extends Component {
                 password: password
             })
                 .then(() => {
-                    this.setState({ success: 'Redefinição de senha efetuada com sucesso' });
+                    this.setState({ success: 'Senha redefinida com sucesso!' });
                 })
                 .catch(err => {
                     this.setState({ error: err.response.data.error });

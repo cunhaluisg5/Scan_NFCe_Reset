@@ -45,10 +45,10 @@ export const Form = styled.form`
     border-radius: 20px;
   }
   p#success {
-    color: #FFFFFF;
+    color: #FFD700;
     font-size: 20px;
     margin-bottom: 15px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #FFD700;
     padding: 10px;
     width: 100%;
     text-align: center;
