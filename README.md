@@ -1,4 +1,8 @@
-
+<p align="center">
+    <img alt="Tasks" src="https://raw.githubusercontent.com/cunhaluisg5/Scan_NFCe_Reset/master/screens/01_Scan_NFCe_Reset.png" width="30%">
+	<img alt="Tasks" src="https://raw.githubusercontent.com/cunhaluisg5/Scan_NFCe_Reset/master/screens/02_Scan_NFCe_Reset.png" width="30%">
+	<img alt="Tasks" src="https://raw.githubusercontent.com/cunhaluisg5/Scan_NFCe_Reset/master/screens/03_Scan_NFCe_Reset.png" width="30%">
+</p>
 
 ## Scan NFC-e Reset
 
