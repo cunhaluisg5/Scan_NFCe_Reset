@@ -5,7 +5,7 @@ const api = axios.create({
   timeout: Number(process.env.REACT_APP_API_TIMEOUT_MS || 20000)
 });
 
-export function getApiErrorMessage(error, fallback = 'Nao foi possivel concluir a solicitacao.') {
+export function getApiErrorMessage(error, fallback = 'Não foi possível concluir a solicitação.') {
   if (error.response?.data?.error) {
     return error.response.data.error;
   }
@@ -15,10 +15,11 @@ export function getApiErrorMessage(error, fallback = 'Nao foi possivel concluir 
   }
 
   if (error.message === 'Network Error') {
-    return 'Nao foi possivel se conectar ao servidor.';
+    return 'Não foi possível se conectar ao servidor.';
   }
 
   return fallback;
 }
 
 export default api;
+

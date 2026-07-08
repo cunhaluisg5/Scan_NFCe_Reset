@@ -12,15 +12,15 @@ export default function Error() {
       <Card>
         <Hero>
           <Logo src={LogoAsset} alt='Logo Scan NFC-e' />
-          <Title>Link de redefinicao nao encontrado</Title>
+          <Title>Link de redefinição não encontrado</Title>
           <Description>
-            A pagina aberta nao corresponde a um token ativo de recuperacao de senha do Scan NFC-e.
+            A página aberta não corresponde a um link ativo de recuperação de senha do Scan NFC-e.
           </Description>
         </Hero>
 
         <Body>
           <Panel>
-            Volte ao aplicativo principal e solicite um novo e-mail de recuperacao se precisar redefinir sua senha.
+            Volte ao aplicativo principal e solicite um novo e-mail de recuperação se precisar redefinir sua senha.
           </Panel>
           <Action type='button' onClick={() => history.replace('/')}>Tentar novamente</Action>
         </Body>
@@ -28,3 +28,4 @@ export default function Error() {
     </Container>
   );
 }
+

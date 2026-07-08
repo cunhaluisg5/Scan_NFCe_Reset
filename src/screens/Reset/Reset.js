@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+﻿import React, { useEffect, useMemo, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import Api, { getApiErrorMessage } from '../../service/Api';
@@ -93,7 +93,7 @@ export default function Reset() {
           setFeedback({
             tone: 'error',
             title: 'Link incompleto',
-            message: 'O endereco aberto nao contem um token de redefinicao valido.',
+            message: 'O endereço aberto não contém um token de redefinição válido.',
           });
         }
         return;
@@ -105,7 +105,7 @@ export default function Reset() {
           setFeedback({
             tone: 'info',
             title: 'Validando acesso',
-            message: 'Estamos verificando se o link de redefinicao ainda pode ser usado.',
+            message: 'Estamos verificando se o link de redefinição ainda pode ser usado.',
           });
         }
 
@@ -123,13 +123,13 @@ export default function Reset() {
           return;
         }
 
-        const message = getApiErrorMessage(error, 'Nao foi possivel validar o link de redefinicao.');
+        const message = getApiErrorMessage(error, 'Não foi possível validar o link de redefinição.');
         const expired = /expirado/i.test(message);
 
         setStatus(expired ? 'expired' : 'invalid');
         setFeedback({
           tone: 'error',
-          title: expired ? 'Link expirado' : 'Link invalido',
+          title: expired ? 'Link expirado' : 'Link inválido',
           message,
         });
       }
@@ -154,7 +154,7 @@ export default function Reset() {
       setFeedback({
         tone: 'info',
         title: 'Redefinindo senha',
-        message: 'Estamos atualizando sua senha com seguranca.',
+        message: 'Estamos atualizando sua senha com segurança.',
       });
 
       await Api.post('/auth/reset_password', {
@@ -168,10 +168,10 @@ export default function Reset() {
       setFeedback({
         tone: 'success',
         title: 'Senha redefinida',
-        message: 'Sua nova senha ja esta ativa. Agora voce pode voltar ao aplicativo e entrar normalmente.',
+        message: 'Sua nova senha já está ativa. Agora você pode voltar ao aplicativo e entrar normalmente.',
       });
     } catch (error) {
-      const message = getApiErrorMessage(error, 'Nao foi possivel redefinir a senha.');
+      const message = getApiErrorMessage(error, 'Não foi possível redefinir a senha.');
       const expired = /expirado/i.test(message);
 
       setStatus(expired ? 'expired' : 'ready');
@@ -186,7 +186,7 @@ export default function Reset() {
   }
 
   const validationEmail = validation?.email || '--';
-  const validationName = validation?.name || 'Usuario';
+  const validationName = validation?.name || 'Usuário';
   const validationExpiry = formatDateTime(validation?.expiresAt);
 
   return (
@@ -194,8 +194,8 @@ export default function Reset() {
       <Card>
         <Hero>
           <Logo src={LogoAsset} alt='Logo Scan NFC-e' />
-          <Eyebrow>Recuperacao de acesso</Eyebrow>
-          <Title>Redefina sua senha com seguranca</Title>
+          <Eyebrow>Recuperação de acesso</Eyebrow>
+          <Title>Redefina sua senha com segurança</Title>
           <Description>
             Este fluxo protege sua conta, valida o link recebido por e-mail e libera uma nova senha apenas enquanto o token estiver ativo.
           </Description>
@@ -217,14 +217,14 @@ export default function Reset() {
               <MetaPanel>
                 <MetaLine>
                   <span>Status</span>
-                  <span>Validando token</span>
+                  <span>Validando o link</span>
                 </MetaLine>
                 <MetaLine>
-                  <span>Seguranca</span>
-                  <span>Conferencia de expiracao em andamento</span>
+                  <span>Segurança</span>
+                  <span>Verificação de expiração em andamento</span>
                 </MetaLine>
               </MetaPanel>
-              <Footer>Assim que a verificacao terminar, liberaremos o formulario correto para este link.</Footer>
+              <Footer>Assim que a verificação terminar, mostraremos a próxima etapa para este link.</Footer>
             </EmptyWrap>
           ) : null}
 
@@ -236,7 +236,7 @@ export default function Reset() {
                   <span>{validationEmail}</span>
                 </MetaLine>
                 <MetaLine>
-                  <span>Usuario</span>
+                  <span>Usuário</span>
                   <span>{validationName}</span>
                 </MetaLine>
                 <MetaLine>
@@ -307,16 +307,16 @@ export default function Reset() {
             <EmptyWrap>
               <MetaPanel>
                 <MetaLine>
-                  <span>Diagnostico</span>
-                  <span>{status === 'expired' ? 'Token expirado' : 'Token invalido'}</span>
+                  <span>Diagnóstico</span>
+                  <span>{status === 'expired' ? 'Token expirado' : 'Link inválido'}</span>
                 </MetaLine>
                 <MetaLine>
-                  <span>Proximo passo</span>
-                  <span>Solicitar um novo e-mail de recuperacao</span>
+                  <span>Próximo passo</span>
+                  <span>Solicitar um novo e-mail de recuperação</span>
                 </MetaLine>
               </MetaPanel>
               <ResponsiveNote>
-                Volte ao aplicativo principal, abra a opcao de esqueci minha senha e solicite um novo link para continuar com seguranca.
+                Volte ao aplicativo principal, abra a opção de esqueci minha senha e solicite um novo link para continuar com segurança.
               </ResponsiveNote>
             </EmptyWrap>
           ) : null}
@@ -325,12 +325,12 @@ export default function Reset() {
 
           <Actions>
             <SecondaryButton type='button' onClick={() => history.replace('/')}>
-              Abrir pagina de apoio
+              Abrir página de apoio
             </SecondaryButton>
           </Actions>
 
           <Footer>
-            Este link foi emitido pelo ecossistema Scan NFC-e. Em caso de erro persistente, solicite um novo e-mail pelo aplicativo principal.
+            Este link foi emitido pelo Scan NFC-e. Se o problema continuar, solicite um novo e-mail pelo aplicativo principal.
             {' '}
             <InlineLink href={process.env.REACT_APP_HELP_URL || '#'} onClick={(event) => {
               if ((process.env.REACT_APP_HELP_URL || '#') === '#') {
@@ -345,3 +345,5 @@ export default function Reset() {
     </Container>
   );
 }
+
+
