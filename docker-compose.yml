@@ -1,0 +1,11 @@
+services:
+  scan-nfce-reset:
+    build:
+      context: .
+      args:
+        REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:3000}
+        REACT_APP_API_TIMEOUT_MS: ${REACT_APP_API_TIMEOUT_MS:-20000}
+        REACT_APP_HELP_URL: ${REACT_APP_HELP_URL:-http://localhost:3001}
+    ports:
+      - "5000:80"
+    restart: unless-stopped

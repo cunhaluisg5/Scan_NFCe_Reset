@@ -1,4 +1,4 @@
-﻿# Scan NFC-e Reset
+# Scan NFC-e Reset
 
 Aplicação web do ecossistema Scan NFC-e usada para validar o link recebido por e-mail e permitir a redefinição segura da senha do usuário.
 
@@ -59,6 +59,32 @@ npm run lint
 
 O modo de desenvolvimento está configurado para a porta `5000`, preservando a compatibilidade com o link enviado por e-mail em ambiente local.
 
+## Docker
+
+Este projeto já está preparado para execução em container, mantendo a porta pública `5000` para preservar o fluxo de recuperação em ambiente local.
+
+### Build manual da imagem
+
+```bash
+docker build \
+  --build-arg REACT_APP_API_URL=http://localhost:3000 \
+  --build-arg REACT_APP_API_TIMEOUT_MS=20000 \
+  --build-arg REACT_APP_HELP_URL=http://localhost:3000 \
+  -t scan-nfce-reset .
+```
+
+```bash
+docker run --rm -p 5000:80 scan-nfce-reset
+```
+
+### Subida com Docker Compose
+
+```bash
+docker compose up --build
+```
+
+A aplicação ficará disponível em `http://localhost:5000`.
+
 ## Fluxo funcional
 
 1. O usuário solicita a recuperação de senha no aplicativo principal.
@@ -77,13 +103,14 @@ O modo de desenvolvimento está configurado para a porta `5000`, preservando a c
 - link inválido: confirme se o token foi copiado completo
 - CORS ou `fetch failed`: confira a URL configurada em `REACT_APP_API_URL`
 - tela em branco: valide se a API está respondendo à rota de validação do token
-- build com OpenSSL: use a configuração de scripts já prevista no projeto
+- link do e-mail não abre a tela correta: revise `RESET_APP_URL` no backend e mantenha a porta `5000` em ambiente local
 
 ## Publicação e operação
 
 - mantenha `REACT_APP_API_URL` e `REACT_APP_HELP_URL` alinhadas ao ambiente real
 - preserve a porta `5000` em ambiente local quando o e-mail apontar para localhost
 - não exponha segredos nem credenciais no frontend
+- gere uma nova imagem quando qualquer variável `REACT_APP_*` mudar, pois elas são embutidas no build
 
 ## Capturas de tela
 
